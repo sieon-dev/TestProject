@@ -1,0 +1,22 @@
+import { STATUS_COLORS } from '@/lib/constants'
+import { cn } from '@/lib/utils'
+import type { OrderStatus } from '@/types/order'
+
+interface BadgeProps {
+  status: OrderStatus
+  className?: string
+}
+
+export default function Badge({ status, className }: BadgeProps) {
+  return (
+    <span
+      className={cn(
+        'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium',
+        STATUS_COLORS[status],
+        className
+      )}
+    >
+      {status}
+    </span>
+  )
+}
